@@ -4,18 +4,25 @@ import pandas as pd
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori, association_rules
 
-def input_params():
+def input_params(add_min_support=False, add_target=True, add_min_threshold=True):
     left, mid, right = st.columns(3)
 
+    min_support = 0.1
+    target = "lift"
+    min_threshold = 1
+
     with left:
-      min_support = float(st.text_input('Nhập giá trị ngưỡng hỗ trợ:', '0.1'))
-      st.write('Ngưỡng hỗ trợ:', min_support)
+      if add_min_support:
+        min_support = float(st.text_input('Nhập giá trị ngưỡng hỗ trợ:', '0.1'))
+        st.write('Ngưỡng hỗ trợ:', min_support)
     with mid:
-      min_threshold = float(st.text_input('Nhập giá trị ngưỡng min_threshold:', '1'))
-      st.write('Ngưỡng min_threshold:', min_threshold)
+      if add_target:
+        min_threshold = float(st.text_input('Nhập giá trị ngưỡng min_threshold:', '1'))
+        st.write('Ngưỡng min_threshold:', min_threshold)
     with right:
-      target = st.selectbox('Chọn mục tiêu:', ['confidence', 'lift', 'leverage', 'conviction'])
-      st.write('Mục tiêu đã chọn:', target)
+      if add_min_threshold:
+        target = st.selectbox('Chọn mục tiêu:', ['confidence', 'lift', 'leverage', 'conviction'])
+        st.write('Mục tiêu đã chọn:', target)
 
     return min_support, target, min_threshold
 

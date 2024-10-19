@@ -50,8 +50,10 @@ st.write(data)
 
 st.write("Áp dụng thuật toán Apriori để tìm ra các quy tắc kết hợp:")
 
+min_support, target, min_threshold = input_params()
+
 if st.button("Kết quả thuật toán", key='apriori'):
-  rules = use_apriori(data, min_support=0.8, target="lift", min_threshold=1)
+  rules = use_apriori(data, min_support=0.8, target=target, min_threshold=min_threshold)
   st.write(rules)
 
 
