@@ -15,22 +15,21 @@ def convert_df(df):
 
 def run(number_transctions):
   data = {
-    'Transaction': [],
     'Items': []
   }
 
   for i in range(1, number_transctions + 1):
       # Random số lượng sản phẩm mua trong mỗi giao dịch.
-    number_items = random.randint(1, 10)
+    number_items = random.randint(1, 7)
+    deviation = random.randint(0, 3)
 
     # Random các sản phẩm mua trong mỗi giao dịch.
-    items = random.sample(products_list.products, number_items)
+    items = random.sample(products_list.products, number_items + deviation)
 
     # Chuyển list các sản phẩm thành một chuỗi.
     items = ', '.join(items)
 
     # Thêm giao dịch và các sản phẩm mua vào dữ liệu.
-    data['Transaction'].append(f'T{i}')
     data['Items'].append(items)
 
   data = pd.DataFrame(data)
@@ -47,7 +46,7 @@ if st.button('Tạo dữ liệu mẫu'):
     st.write('Dữ liệu mẫu đã được tạo thành công.')
     csv = convert_df(data)
     # chart cho data hiển thị số lượng ở cột y và tên các sản phẩm ở cột x
-    st.write('Dữ vừa khởi tạo:', data)
+    st.write('Dữ liệu vừa khởi tạo:', data)
 
     st.write('Dữ liệu sau khi đếm số lần mua của mỗi sản phẩm:')
     number_of_items = data['Items'].str.split(', ', expand=True).stack().value_counts().reset_index()

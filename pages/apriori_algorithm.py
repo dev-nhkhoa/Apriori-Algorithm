@@ -17,17 +17,19 @@ if uploaded_file is not None:
     columns = columns.insert(0, 'None')
     col_name = st.selectbox('Chọn cột dữ liệu:', columns)
 
-    split_char = st.text_input('Nhập kí tự bạn đã dùng để phân tách các sản phẩm:', value=',')
+    split_char = st.text_input('Nhập kí tự bạn đã dùng để phân tách các sản phẩm:', value=', ')
 
 
     if st.button("Thực hiện thuật toán:"):
         if col_name != 'None':
             data = data[col_name]
             # loại bỏ giá trị nan
+            data = data.dropna()
             data = data.apply(lambda row: str(row).split(split_char))
-        st.write('Dữ liệu sau khi xử lý:', data)
 
-        data = data.apply(lambda row: row.dropna().tolist())
+        else :
+            data = data.apply(lambda row: row.dropna().tolist())
+        st.write('Dữ liệu sau khi xử lý:', data)
         rules = use_apriori(data, min_support, target, min_threshold)
         st.write('Các quy tắc kết hợp:', rules)
 
