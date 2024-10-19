@@ -43,19 +43,15 @@ data = data.groupby('clothing_model_page')['country'].unique()
 data = pd.DataFrame(data)
 
 data = data.reset_index()
-st.write("Dữ liệu sau khi xử lý:")
-st.write(data)
-
 data = data['country'].apply(lambda x: x.tolist())
 
+st.write("Dữ liệu sau khi xử lý:")
 st.write(data)
 
 st.write("Áp dụng thuật toán Apriori để tìm ra các quy tắc kết hợp:")
 
-min_support, target, min_threshold =  input_params()
-
 if st.button("Kết quả thuật toán", key='apriori'):
-  rules = use_apriori(data, min_support, target, min_threshold)
+  rules = use_apriori(data, min_support=0.8, target="lift", min_threshold=1)
   st.write(rules)
 
 
