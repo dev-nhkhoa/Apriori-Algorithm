@@ -8,10 +8,10 @@ def input_params():
     left, mid, right = st.columns(3)
 
     with left:
-      min_support = float(st.text_input('Nhập giá trị ngưỡng hỗ trợ:', '0.001'))
+      min_support = float(st.text_input('Nhập giá trị ngưỡng hỗ trợ:', '0.1'))
       st.write('Ngưỡng hỗ trợ:', min_support)
     with mid:
-      min_threshold = float(st.text_input('Nhập giá trị ngưỡng min_threshold:', '0.8'))
+      min_threshold = float(st.text_input('Nhập giá trị ngưỡng min_threshold:', '1'))
       st.write('Ngưỡng min_threshold:', min_threshold)
     with right:
       target = st.selectbox('Chọn mục tiêu:', ['confidence', 'lift', 'leverage', 'conviction'])
@@ -21,8 +21,6 @@ def input_params():
 
 def use_apriori(transactions, min_support, target, min_threshold):
     
-    
-
     te = TransactionEncoder()
     te_ary = te.fit(transactions).transform(transactions)
     df = pd.DataFrame(te_ary, columns=te.columns_)

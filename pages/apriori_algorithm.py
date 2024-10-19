@@ -23,9 +23,11 @@ if uploaded_file is not None:
     if st.button("Thực hiện thuật toán:"):
         if col_name != 'None':
             data = data[col_name]
+            # loại bỏ giá trị nan
             data = data.apply(lambda row: str(row).split(split_char))
         st.write('Dữ liệu sau khi xử lý:', data)
 
+        data = data.apply(lambda row: row.dropna().tolist())
         rules = use_apriori(data, min_support, target, min_threshold)
         st.write('Các quy tắc kết hợp:', rules)
 
