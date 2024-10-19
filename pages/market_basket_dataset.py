@@ -16,5 +16,5 @@ market_basket = market_basket.apply(lambda x: x.dropna().tolist(), axis=1).tolis
 min_support, target, min_threshold = input_params()
 
 if st.button("Thực hiện thuật toán"):
-    rules = use_apriori(market_basket, min_support=0.001, target=target, min_threshold=min_threshold)
+    rules = use_apriori(market_basket, min_support=0.05, target=target, min_threshold=min_threshold)
     st.write('Các quy tắc kết hợp:', rules)
