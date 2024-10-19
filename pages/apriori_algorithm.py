@@ -1,7 +1,11 @@
 import pandas as pd
 import streamlit as st
+from utils.products_list import sample_data_table
 
 from lib.apriori import use_apriori, input_params
+
+st.write("Input dữ liệu chuẩn: Ví dụ bên dưới để app có thể chạy đúng.")
+st.write("", pd.DataFrame(sample_data_table))
 
 st.write("Chọn các thông số cho thuật toán Apriori:")
 min_support, target, min_threshold = input_params()
