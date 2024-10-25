@@ -4,11 +4,27 @@ from utils.products_list import sample_data_table
 
 from lib.apriori import use_apriori, input_params
 
-st.write("Input dữ liệu chuẩn: Ví dụ bên dưới để app có thể chạy đúng.")
-st.write("", pd.DataFrame(sample_data_table))
+st.header("Thuật toán Apriori:")
+st.subheader("Tìm luật kết hợp dễ dàng với bộ dữ liệu của bạn.")
+
+st.title("Hướng dẫn sử dụng")
+
+left, right = st.columns(2)
+
+with left:
+    st.info("1. Import bộ dữ liệu với định dạng file .csv lên trang web.")
+    st.warning("Lưu ý: File dữ liệu phải chuẩn theo format mẫu:")
+with right:
+    st.write(pd.DataFrame(sample_data_table))
+
+st.info("2. Chọn các chỉ số tùy chỉnh:")
+st.error("* min_support: phải được căn chỉnh phù hợp để tránh tình trạng bị crash app.")
+st.error("* target: chỉ số mục tiêu cần phải tìm.")
+st.error("* min_threshold: ngưỡng tối thiểu.")
+
 
 st.write("Chọn các thông số cho thuật toán Apriori:")
-min_support, target, min_threshold = input_params()
+min_support, target, min_threshold = input_params(add_min_support=True)
 uploaded_file = st.file_uploader("Chọn một file CSV...", type="csv")
 
 # Nếu người dùng đã chọn file dữ liệu, hãy hiển thị số lượng dòng dữ liệu trong file.

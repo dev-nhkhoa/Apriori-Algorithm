@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 from utils.products_list import sample_data_table
 from lib.apriori import use_apriori, input_params
+import plotly.express as px
 
 file_path = './dataset/CountryLevelPurchasePattern.csv'
 
@@ -55,6 +56,17 @@ min_support, target, min_threshold = input_params()
 if st.button("Kết quả thuật toán", key='apriori'):
   rules = use_apriori(data, min_support=0.8, target=target, min_threshold=min_threshold)
   st.write(rules)
+
+  if not rules.empty:
+        rules['antecedents'] = rules['antecedents'].apply(lambda x: str(x))
+        rules['consequents'] = rules['consequents'].apply(lambda x: str(x))
+        
+        fig = px.bar(rules, x='antecedents', y='support', color='confidence',
+                     title='Hỗ trợ của các quy tắc kết hợp',
+                     labels={'support': 'Hỗ trợ', 'antecedents': 'Quy tắc tiền đề'},
+                     color_continuous_scale=px.colors.sequential.Viridis)
+
+        st.plotly_chart(fig)
 
 
 

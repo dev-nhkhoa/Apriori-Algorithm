@@ -51,6 +51,20 @@ st.warning("1. Tùy thuộc vào ngưỡng `min_support` có thể App sẽ bị
 
 st.divider()
 
+st.header("Chương 3. Cấu trúc Web App", anchor='9')
+
+st.write("Web App có những trang chính có các chức năng sau:")
+
+st.write("`Trang chủ`: Giới thiệu về dự án, sơ lược về luật kết hợp và các nội dung lý thuyết khác.")
+st.write("`Tạo dữ liệu giả`: Tạo ra dữ liệu giả về các giao dịch mua hàng để người dùng thử nghiệm thuật toán Apriori.")
+st.write("`Sử dụng thuật toán`: Thực hiện thuật toán Apriori trên dữ liệu người dùng tự tải lên hoặc dữ liệu mẫu.")
+st.write("Các bộ dữ liệu: Thực hiện và trình bày cụ thể các chuẩn hóa và áp dụng thuật toán Apriori.")
+st.write("`Brazilian-Ecommerce`: Bộ dữ liệu về các giao dịch thương mại điện tử từ brazil.")
+st.write("`Market-basket-dataset`: Bộ dữ liệu về các giao dịch mua hàng ở một siêu thị.")
+st.write("`Country-level-purchase`: Bộ dữ liệu về các giao dịch mua hàng ở các quốc gia.")
+
+st.divider()
+
 left,right = st.columns(2)
 
 with left:
