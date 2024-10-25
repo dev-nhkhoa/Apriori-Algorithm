@@ -16,4 +16,4 @@ st.page_link(label="Xem chi tiết tại đây", page="pages/country_level_purch
 st.divider()
 
 st.write("Bộ dữ liệu `Brazilian Ecommerce Dataset` từ `Kaggle`", )
-st.page_link(label="Xem chi tiết tại đây", page="pages/brazilian_ecommerce.py", use_container_width=True)
+st.page_link(label="Xem chi tiết tại đây", page="pages/brazilian_ecommerce_dataset.py", use_container_width=True)
