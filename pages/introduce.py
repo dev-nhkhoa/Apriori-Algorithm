@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit_shadcn_ui as ui
 from streamlit_extras.grid import grid
 
 st.header("Áp dụng thuật toán Apriori ( Luật kết hợp ) để dự đoán nhu cầu của khách hàng dựa trên lịch sử mua hàng.", anchor='1')
