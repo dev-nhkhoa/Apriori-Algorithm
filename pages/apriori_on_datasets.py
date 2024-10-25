@@ -12,3 +12,8 @@ st.divider()
 
 st.write("Bộ dữ liệu `Country Level Purchase Dataset` từ `Kaggle`", )
 st.page_link(label="Xem chi tiết tại đây", page="pages/country_level_purchase_dataset.py", use_container_width=True)
+
+st.divider()
+
+st.write("Bộ dữ liệu `Brazilian Ecommerce Dataset` từ `Kaggle`", )
+st.page_link(label="Xem chi tiết tại đây", page="pages/brazilian_ecommerce.py", use_container_width=True)
