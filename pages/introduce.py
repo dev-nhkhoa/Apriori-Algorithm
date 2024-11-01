@@ -18,7 +18,7 @@ with left:
 
 with right:
   st.header("Giảng viên hướng dẫn:", anchor='4')
-  st.subheader("Thầy Phan Hồ Viết Tường.")
+  st.subheader("Thầy Phan Hồ Viết Trường.")
 
 st.divider()
 
