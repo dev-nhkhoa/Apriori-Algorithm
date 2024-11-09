@@ -1,4 +1,4 @@
-streamlit
-streamlit_extras
-pandas
-mlxtend
+streamlit #  Xây dựng ứng dụng web cho machine learning và phân tích dữ liệu một cách nhanh chóng và dễ dàng
+streamlit_extras # Thư viện mở rộng cho Streamlit, cung cấp thêm các tính năng và widget để tăng cường khả năng tương tác và trực quan hóa dữ liệu
+pandas #  Dùng để xử lý và phân tích dữ liệu. Nó cung cấp cấu trúc dữ liệu mạnh mẽ như DataFrame và Series 
+mlxtend # Là một thư viện mở rộng cho scikit-learn, cung cấp nhiều công cụ hữu ích cho việc xây dựng và đánh giá mô hình machine learning.
