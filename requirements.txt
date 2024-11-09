@@ -1,4 +1,4 @@
 streamlit
 streamlit_extras
 pandas
-mlxtend
+mlxtend==0.23.1
