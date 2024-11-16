@@ -29,7 +29,7 @@ uploaded_file = st.file_uploader("Chọn một file CSV...", type="csv")
 
 # Nếu người dùng đã chọn file dữ liệu, hãy hiển thị số lượng dòng dữ liệu trong file.
 if uploaded_file is not None:
-    data = pd.read_csv(uploaded_file)
+    data = pd.read_csv(uploaded_file, low_memory=False, on_bad_lines='skip', encoding='utf-8')
     st.write('Số lượng dòng dữ liệu trong file:', data.shape[0])
     st.write('Dữ liệu đã tải lên của bạn:', data)
 
