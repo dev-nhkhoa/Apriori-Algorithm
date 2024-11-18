@@ -7,13 +7,13 @@ from mlxtend.frequent_patterns import apriori, association_rules
 def input_params(add_min_support=False, add_target=True, add_min_threshold=True):
     left, mid, right = st.columns(3)
 
-    min_support = 0.000001
+    min_support = 1
     target = "lift"
     min_threshold = 1
 
     with left:
       if add_min_support:
-        min_support = float(st.text_input('Nhập giá trị ngưỡng hỗ trợ:', '0.000001'))
+        min_support = float(st.text_input('Nhập giá trị ngưỡng hỗ trợ:', '1'))
         st.write('Ngưỡng hỗ trợ:', min_support)
     with mid:
       if add_target:
